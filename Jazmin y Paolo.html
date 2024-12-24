@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)file:///C:/Users/paolo/Desktop/Nueva%20carpeta/Jazmin%20y%20Paolo.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jazmin y Paolo</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f0f7;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #ffc2d1;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .poem-section {
+            background-color: #ffe6e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .poem-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .poem-section h2 {
+            margin-top: 0;
+            color: #ff6188;
+        }
+        .upcoming {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .upcoming:hover {
+            background-color: #ffc2d1;
+        }
+        .countdown {
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            animation: slideUp 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .container {
+                padding: 10px;
+            }
+            .countdown {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Jazmin y Paolo</h1>
+        <p>Un espacio para nosotros</p>
+    </header>
+
+    <div class="container">
+        <div class="countdown">
+            <p>Cuenta regresiva para el gran regalo:</p>
+            <span id="timer">0d 6h 4m 12s</span>
+        </div>
+
+        <div class="poem-section">
+            <h2>Poemas</h2>
+            <p><strong>1. Poema 1:</strong> [Contenido del poema]</p>
+            <p><strong>2. Poema 2:</strong> [Contenido del poema]</p>
+            <p><strong>3. Poema 3:</strong> [Contenido del poema]</p>
+            <p><strong>4. Poema 4:</strong> [Contenido del poema]</p>
+            <p><strong>5. Poema 5:</strong> [Contenido del poema]</p>
+            <p><strong>6. Poema 6:</strong> [Contenido del poema]</p>
+
+            <!-- Espacios para futuros poemas -->
+            <div class="upcoming">
+                <span>Poema 7:</span>
+                <span>Próximamente</span>
+            </div>
+            <div class="upcoming">
+                <span>Poema 8:</span>
+                <span>Próximamente</span>
+            </div>
+            <div class="upcoming">
+                <span>Poema 9:</span>
+                <span>Próximamente</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Con mucho amor, Paolo</p>
+    </footer>
+
+    <script>
+        const targetDate = new Date("December 24, 2024 22:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById("timer").innerHTML = "¡El regalo está disponible!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+
+
+</body></html>
